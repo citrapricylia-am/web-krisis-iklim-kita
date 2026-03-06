@@ -43,17 +43,16 @@ const Navbar: React.FC = () => {
           className="flex items-center gap-3 cursor-pointer group" 
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         >
-          <div className="w-12 h-12 bg-white border-2 border-stone-900 rounded-lg flex items-center justify-center neo-brutalism-shadow group-hover:rotate-6 transition-transform overflow-hidden p-1">
+          <div className="w-30 h-16">
             <img 
-              src="https://raw.githubusercontent.com/stackblitz/stackblitz-images/main/climate-3d-earth.png" 
+              src="assets/icon.png" 
               alt="Logo" 
               className="w-full h-full object-contain"
               onError={(e) => {
-                (e.target as HTMLImageElement).src = "https://cdn-icons-png.flaticon.com/512/2847/2847306.png";
+                (e.target as HTMLImageElement).src = "assets/icon.png";
               }}
             />
           </div>
-          <span className="text-xl font-black tracking-tight text-stone-900 uppercase">Krisis Iklim Kita</span>
         </div>
 
         {/* Navigasi Desktop */}
@@ -103,3 +102,4 @@ const Navbar: React.FC = () => {
 };
 
 export default Navbar;
+
