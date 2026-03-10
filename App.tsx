@@ -212,7 +212,7 @@ const App: React.FC = () => {
     {/* KANAN — GAMBAR */}
     <div className="lg:col-span-5 flex justify-end relative">
       <img
-        src="/assets/law.png"
+        src="/assets/edit_law.png"
         alt="Ilustrasi keadilan iklim"
         className="w-full max-w-lg translate-y-[-2rem]"
       />
@@ -449,3 +449,4 @@ const App: React.FC = () => {
 };
 
 export default App;
+
