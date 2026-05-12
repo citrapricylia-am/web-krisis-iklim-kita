@@ -142,7 +142,7 @@ const App: React.FC = () => {
               <div className="absolute inset-0 bg-stone-200 rounded-[3rem] rotate-3 -z-10" />
               <div className="relative overflow-hidden rounded-[3rem] border-4 border-stone-900 neo-brutalism-shadow aspect-[4/5] md:aspect-square">
                 <img 
-                  src="assets/forest.jpg" 
+                  src="assets/gambar1.png" 
                   alt="Dampak Perubahan Iklim di Wilayah Pesisir" 
                   className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000 scale-105 hover:scale-100"
                 />
@@ -212,7 +212,7 @@ const App: React.FC = () => {
     {/* KANAN — GAMBAR */}
     <div className="lg:col-span-5 flex justify-end relative">
       <img
-        src="/assets/removebg.png"
+        src="/assets/gambar2.png"
         alt="Ilustrasi keadilan iklim"
         className="w-full max-w-lg translate-y-[-2rem]"
       />
