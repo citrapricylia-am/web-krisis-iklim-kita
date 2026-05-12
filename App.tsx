@@ -138,25 +138,12 @@ const App: React.FC = () => {
               </div>
             </div>
 
-            <div className="relative hidden lg:block animate-in fade-in slide-in-from-right duration-1000">
-              <div className="absolute inset-0 bg-stone-200 rounded-[3rem] rotate-3 -z-10" />
-              <div className="relative overflow-hidden rounded-[3rem] border-4 border-stone-900 neo-brutalism-shadow aspect-[4/5] md:aspect-square">
                 <img 
                   src="assets/gambar1.png" 
                   alt="Dampak Perubahan Iklim di Wilayah Pesisir" 
                   className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000 scale-105 hover:scale-100"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-stone-900/40 to-transparent pointer-events-none" />
-              </div>
-              
-              <div className="absolute bottom-12 -left-10 bg-white border-4 border-stone-900 p-8 rounded-3xl neo-brutalism-shadow max-w-sm z-20 animate-float">
-                 <div className="flex items-start gap-4">
-                   <p className="text-lg font-bold text-stone-800 leading-snug">
-                     "Kerentanan lebih tinggi dialami Masyarakat Adat & Petani Kecil."
-                   </p>
-                 </div>
-              </div>
-            </div>
+              <
           </div>
 
           <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce cursor-pointer opacity-50 hover:opacity-100 transition-opacity" onClick={scrollToNext} role="button" aria-label="Gulir ke bagian selanjutnya">
