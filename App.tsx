@@ -143,7 +143,6 @@ const App: React.FC = () => {
                   alt="Dampak Perubahan Iklim di Wilayah Pesisir" 
                   className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000 scale-105 hover:scale-100"
                 />
-              <
           </div>
 
           <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce cursor-pointer opacity-50 hover:opacity-100 transition-opacity" onClick={scrollToNext} role="button" aria-label="Gulir ke bagian selanjutnya">
@@ -436,4 +435,3 @@ const App: React.FC = () => {
 };
 
 export default App;
-
