@@ -45,11 +45,11 @@ const Navbar: React.FC = () => {
         >
           <div className="w-30 h-16">
             <img 
-              src="assets/logo2.png" 
+              src="assets/logo1.png" 
               alt="Logo" 
               className="w-full h-full object-contain"
               onError={(e) => {
-                (e.target as HTMLImageElement).src = "assets/logo2.png";
+                (e.target as HTMLImageElement).src = "assets/logo1.png";
               }}
             />
           </div>
@@ -102,6 +102,3 @@ const Navbar: React.FC = () => {
 };
 
 export default Navbar;
-
-
-
