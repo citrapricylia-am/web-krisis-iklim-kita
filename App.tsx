@@ -4,7 +4,7 @@ import {
   ArrowDown, 
   ArrowRight, 
   ChevronDown, 
-  ExternalLink, 
+  Users, 
   Megaphone, 
   Share2, 
   ShieldCheck, 
@@ -24,6 +24,7 @@ import Navbar from './Navbar';
 import Modal from './Modal';
 import DataSource from './DataSource';
 import AccessibilityToolbar from './AccessibilityToolbar';
+import ForumKomunitas from './ForumKomunitas';
 import { HELP_DATA, FACTS } from './constants';
 import { HelpContent, HelpType } from './types';
 
@@ -31,7 +32,7 @@ const App: React.FC = () => {
   const [activeModal, setActiveModal] = useState<HelpContent | null>(null);
   const [isLoadingPortal, setIsLoadingPortal] = useState(false);
   const [scrollWidth, setScrollWidth] = useState(0);
-  const [currentView, setCurrentView] = useState<'home' | 'data-source'>('home');
+  const [currentView, setCurrentView] = useState<'home' | 'data-source' | 'forum'>('home');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -79,10 +80,10 @@ const App: React.FC = () => {
 
   const openConsultation = () => {
     setIsLoadingPortal(true);
-    // Memberikan feedback visual sebentar sebelum diarahkan ke portal
     setTimeout(() => {
-      window.location.href = 'https://konsultasi-iklim-terbuka.vercel.app/';
-    }, 800);
+      setIsLoadingPortal(false);
+      setCurrentView('forum');
+    }, 600);
   };
 
   const shareContent = () => {
@@ -106,6 +107,11 @@ const App: React.FC = () => {
         <AccessibilityToolbar />
       </>
     );
+  }
+
+  // Render Forum Komunitas page if active
+  if (currentView === 'forum') {
+    return <ForumKomunitas onBack={() => setCurrentView('home')} />;
   }
 
   return (
@@ -345,7 +351,7 @@ const App: React.FC = () => {
                   </>
                 ) : (
                   <>
-                    Portal Konsultasi <ExternalLink className="w-8 h-8 group-hover:rotate-12 transition-transform" />
+                    Forum Komunitas <Users className="w-8 h-8 group-hover:scale-110 transition-transform" />
                   </>
                 )}
               </button>
