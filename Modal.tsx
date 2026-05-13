@@ -1,7 +1,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import { X, ArrowRight, Shield, TrendingDown, Map, ShoppingBag } from 'lucide-react';
-import { HelpContent, HelpType } from '../types';
+import { HelpContent, HelpType } from './types';
 
 interface ModalProps {
   content: HelpContent | null;
