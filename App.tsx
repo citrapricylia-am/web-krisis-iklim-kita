@@ -25,6 +25,8 @@ import Modal from './Modal';
 import DataSource from './DataSource';
 import AccessibilityToolbar from './AccessibilityToolbar';
 import ForumKomunitas from './ForumKomunitas';
+import TentangKami from './TentangKami';
+import Kontak from './Kontak';
 import { HELP_DATA, FACTS } from './constants';
 import { HelpContent, HelpType } from './types';
 
@@ -32,7 +34,7 @@ const App: React.FC = () => {
   const [activeModal, setActiveModal] = useState<HelpContent | null>(null);
   const [isLoadingPortal, setIsLoadingPortal] = useState(false);
   const [scrollWidth, setScrollWidth] = useState(0);
-  const [currentView, setCurrentView] = useState<'home' | 'data-source' | 'forum'>('home');
+  const [currentView, setCurrentView] = useState<'home' | 'data-source' | 'forum' | 'tentang' | 'kontak'>('home');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -114,6 +116,16 @@ const App: React.FC = () => {
     return <ForumKomunitas onBack={() => setCurrentView('home')} />;
   }
 
+  // Render Tentang Kami page if active
+  if (currentView === 'tentang') {
+    return <TentangKami onBack={() => setCurrentView('home')} />;
+  }
+
+  // Render Kontak page if active
+  if (currentView === 'kontak') {
+    return <Kontak onBack={() => setCurrentView('home')} onGoForum={() => setCurrentView('forum')} />;
+  }
+
   return (
     <div className="min-h-screen selection:bg-yellow-200 flex flex-col">
       {/* Scroll Progress */}
@@ -145,16 +157,16 @@ const App: React.FC = () => {
             </div>
 
                 <img 
-                  src="assets/gambar1.png" 
+                  src="assets/Gambar3.png" 
                   alt="Dampak Perubahan Iklim di Wilayah Pesisir" 
                   className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000 scale-105 hover:scale-100"
                 />
           </div>
 
-          <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce cursor-pointer opacity-50 hover:opacity-100 transition-opacity" onClick={scrollToNext} role="button" aria-label="Gulir ke bagian selanjutnya">
+          {/*<div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce cursor-pointer opacity-50 hover:opacity-100 transition-opacity" onClick={scrollToNext} role="button" aria-label="Gulir ke bagian selanjutnya">
             <span className="text-[10px] font-black uppercase tracking-[0.3em]">Scroll</span>
             <ChevronDown className="w-8 h-8" />
-          </div>
+          </div>*/}
         </header>
 
        {/* Narrative Section */}
@@ -370,18 +382,12 @@ const App: React.FC = () => {
       <footer className="bg-stone-50 pt-32 pb-16 px-6 border-t-4 border-stone-200">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 lg:grid-cols-4 gap-20">
           <div className="lg:col-span-2 space-y-10">
-            <div className="flex items-center gap-4">
-              <div className="w-16 h-16 bg-white border-4 border-stone-900 rounded-2xl flex items-center justify-center neo-brutalism-shadow p-2 overflow-hidden">
-                <img 
-                  src="https://raw.githubusercontent.com/stackblitz/stackblitz-images/main/climate-3d-earth.png" 
-                  alt="Logo Krisis Iklim Kita" 
-                  className="w-full h-full object-contain"
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).src = "https://cdn-icons-png.flaticon.com/512/2847/2847306.png";
-                  }}
-                />
-              </div>
-              <span className="text-3xl font-black uppercase tracking-tighter text-stone-900">Krisis Iklim Kita</span>
+            <div className="flex items-center">
+              <img 
+                src="assets/logo1.png" 
+                alt="Logo Krisis Iklim Kita" 
+                className="h-20 w-auto object-contain"
+              />
             </div>
             <p className="text-xl text-stone-600 font-medium leading-relaxed max-w-md">
               Inisiatif pendidikan publik untuk membangun kedaulatan informasi dan kesadaran kolektif tentang keadilan iklim di Indonesia.
@@ -400,16 +406,16 @@ const App: React.FC = () => {
             <ul className="space-y-5 font-bold text-xl text-stone-700">
               <li><a href="#framework" className="hover:text-red-500 transition-colors flex items-center gap-2 group"><ArrowRight className="w-5 h-5 opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all" /> Empat Pilar</a></li>
               <li><a href="#facts" className="hover:text-red-500 transition-colors flex items-center gap-2 group"><ArrowRight className="w-5 h-5 opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all" /> Fakta Krisis</a></li>
-              <li><a href="#action" className="hover:text-red-500 transition-colors flex items-center gap-2 group"><ArrowRight className="w-5 h-5 opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all" /> Ambil Aksi</a></li>
+              <li><button onClick={() => setCurrentView('forum')} className="hover:text-red-500 transition-colors flex items-center gap-2 group"><ArrowRight className="w-5 h-5 opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />Suara Keadilan Iklim</button></li>
             </ul>
           </div>
 
           <div className="space-y-10">
             <h4 className="font-black uppercase tracking-[0.2em] text-stone-400 text-sm">Informasi</h4>
             <ul className="space-y-5 font-bold text-xl text-stone-700">
-              <li><a href="#" className="hover:text-red-500 transition-colors">Tentang Kami</a></li>
-              <li><a href="#" className="hover:text-red-500 transition-colors">RUU Iklim</a></li>
-              <li><a href="#" className="hover:text-red-500 transition-colors">Kontak</a></li>
+              <li><button onClick={() => setCurrentView('tentang')} className="hover:text-red-500 transition-colors">Tentang Kami</button></li>
+              {/* <li><a href="#" className="hover:text-red-500 transition-colors">RUU Iklim</a></li> */}
+              <li><button onClick={() => setCurrentView('kontak')} className="hover:text-red-500 transition-colors">Kontak</button></li>
               <li><a href="#" className="hover:text-red-500 transition-colors">Kebijakan</a></li>
             </ul>
           </div>
